@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/hits', function(req, res, next) {
-  res.render('hits', { title: 'Express' });
+  res.render('hits', { title: 'Hits' });
 });
 
 router.post('/auth/spotify', passport.authenticate('spotify'), function(req, res, next) {
