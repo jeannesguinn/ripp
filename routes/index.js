@@ -15,7 +15,6 @@ router.post('/auth/spotify', passport.authenticate('spotify'), function(req, res
   res.redirect('/hits');
 });
 
-router.get('/auth/github', passport.authenticate('spotify', { scope: [ 'user' ] }));
 
 router.get('/auth/spotify/callback', passport.authenticate('spotify', { failureRedirect: '/' }), function(req, res, next) {
   res.redirect('/hits');
