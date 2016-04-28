@@ -4,6 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// The session var, requires express-session, which gives us the ability to remember someone was logged into a page
+var session = require('express-session');
+
+//----------This is where we require mongoose (which creates our schema for mongoDB) and then connect us to our DB in MongoDB----
+var mongoose = require('mongoose');
+mongoose.connect(process.env.DB_CONN_JEANNEWDI);
+
+// ----------Passport Configuration and Mongoose Plugin for Local-Passport---------------------------------------------------
+//
+var User = require('./models/user');
+
+//Require passport to set-up authentication
+var passport = require('passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
