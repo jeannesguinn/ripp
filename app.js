@@ -38,6 +38,7 @@ passport.deserializeUser(function(id, done) {
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
 
 // view engine setup
@@ -109,4 +110,3 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-
