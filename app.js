@@ -8,11 +8,21 @@ var session = require('express-session');
 
 
 var mongoose = require('mongoose');
-mongoose.connect(process.env.DB_CONN_GA_WDI5ATX);
+mongoose.connect(process.env.DB_CONN_JEANNEWDI);
 
 var User = require('./models/user');
 var passport = require('passport');
 var spotifyStrategy = require('passport-spotify').Strategy;
+
+//isLoggedIn is a plain jane function that hasn't been called. To use it as middleware, we call it by passing
+//it as a variable in the get profile route
+  function isLoggedIn(req, res, next){
+    if (req.isAuthenticated()) {
+      next();
+    }else{
+      res.redirect('/');
+    }
+  };
 
 passport.use(new spotifyStrategy({
     clientID: process.env.SPOTIFY_CLIENT_ID,
