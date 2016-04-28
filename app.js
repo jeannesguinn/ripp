@@ -15,8 +15,8 @@ var passport = require('passport');
 var spotifyStrategy = require('passport-spotify').Strategy;
 
 passport.use(new spotifyStrategy({
-    clientID: '53b1976ba63a439cbbb1cb2cebb6ba68',
-    clientSecret: '56ed7f82f8514df381c9de2e065c14bc',
+    clientID: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/hits"
   },
   function(accessToken, refreshToken, profile, done) {
